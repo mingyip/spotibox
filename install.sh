@@ -2,7 +2,7 @@
 
 # apt install basic software
 sudo apt-get update
-sudo apt-get install elpa-magit
+sudo apt-get install elpa-magit -y
 sudo apt install git-all -y
 sudo apt install ffmpeg -y
 sudo apt-get install alsa-base alsa-utils -y
