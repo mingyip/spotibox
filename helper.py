@@ -5,6 +5,22 @@ from datetime import date
 from refresh import Refresh
 
 
+def get_playback_state():
+
+    refreshCaller = Refresh()
+    spotify_token = refreshCaller.refresh()
+
+    query = "https://api.spotify.com/v1/me/player"
+
+    response = requests.get(query, headers={
+            "Content-Type": "application/json",
+            "Authorization": "Bearer {}".format(spotify_token)
+        })
+
+    response_json = response.json()
+
+    return response_json['is_playing']
+
 def skip_to_previous():
 
     refreshCaller = Refresh()
@@ -102,5 +118,3 @@ def play_on_device(device_name):
                 })
 
             break
-
-
